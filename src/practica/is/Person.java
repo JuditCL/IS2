@@ -4,7 +4,9 @@
  */
 package practica.is;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -13,10 +15,10 @@ import java.util.Date;
 public class Person {
     private final String name;
     private final String surname;
-    private final Date cumple;
+    private final Calendar cumple;
     private static final long MILLISECONDS_PER_YEAR = (long) (1000*60*60*24*365.25);
 
-    public Person(String name, String surname, Date cumple) {
+    public Person(String name, String surname, Calendar cumple) {
         this.name = name;
         this.surname = surname;
         this.cumple = cumple;
@@ -30,15 +32,15 @@ public class Person {
         return surname;
     }
 
-    public Date getCumple() {
+    public Calendar getCumple() {
         return cumple;
     }
     public String getFullName(){
         return name +  " " + surname;
     }
     public int getAge(){
-        Date today = new Date();
-        return (int)miMetodo(today.getTime()-cumple.getTime());
+        Calendar today = GregorianCalendar.getInstance();
+        return (int)miMetodo(today.getTimeInMillis()-cumple.getTimeInMillis());
     }
     
     private long miMetodo (long millis){
