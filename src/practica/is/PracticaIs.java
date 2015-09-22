@@ -4,7 +4,9 @@
  */
 package practica.is;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -19,10 +21,12 @@ public class PracticaIs {
         System.out.println("Hola");
         
         Person p1;
-        Date birth = new Date (94,6,24);
+        //Date birth = new Date (94,6,24);
+        Calendar birth = GregorianCalendar.getInstance();
+        birth.set(1994,6,24);
         p1 = new Person("Judit", "Correa", birth);
         System.out.println(p1.getFullName());
-        System.out.println(p1.getCumple());
+        System.out.println(p1.getCumple().getTime());
         System.out.println(p1.getAge());
         System.out.println("fin ");
     }
